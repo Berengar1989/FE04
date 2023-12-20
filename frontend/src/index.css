@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mylink {
+    color: blue;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .modal-content {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .save-button {
+    background-color: #4caf50; /* Green color */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #f44336; /* Red color */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  

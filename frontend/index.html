@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <style>
+        #login-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white; /* Set a background color for better visibility */
+        }
+
+        input {
+            padding: 8px;
+            margin: 8px;
+            width: 200px;
+            outline: none; /* Remove default outline */
+            border: 1px solid #ccc; /* Add a border to the input fields */
+            border-radius: 4px; /* Optional: Add rounded corners */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #357e40; /* Add border color */
+            border-radius: 4px; /* Add rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Add transition effect for background color */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Change background color on hover */
+        }
+
+        #logout-button {
+            display: none; /* Hide the logout button by default */
+        }
+
+        #logged-in-message {
+            display: none;
+            font-weight: bold;
+        }
+
+        #error-message {
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <div id="login-container">
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br>
+
+            <button type="button" onclick="performLogin()">Login</button>
+        </form>
+        <p id="error-message"></p>
+        <p id="logged-in-message"></p>
+        <button id="logout-button" style="display: none;" onclick="performLogout()">Logout</button>
+    </div>
+
+    <script>
+        function performLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Array of valid users
+            const validUsers = [
+                { username: 'Artem', password: 'password1' },
+                { username: 'Tomas', password: 'password2' },
+                { username: 'Michal', password: 'password3' }
+            ];
+
+            // Check if the entered credentials match any valid user
+            const isValidUser = validUsers.some(user => user.username === username && user.password === password);
+
+            if (isValidUser) {
+                document.getElementById('error-message').innerText = '';
+                document.getElementById('login-form').style.display = 'none'; // Hide the login form
+                document.getElementById('logged-in-message').innerText = `Logged in as ${username}`;
+                document.getElementById('logged-in-message').style.display = 'block'; // Display the logged-in message
+                document.getElementById('logout-button').style.display = 'block'; // Display the logout button
+            } else {
+                document.getElementById('error-message').innerText = 'Invalid username or password';
+            }
+        }
+
+        function performLogout() {
+            document.getElementById('login-form').style.display = 'block'; // Show the login form
+            document.getElementById('logged-in-message').style.display = 'none'; // Hide the logged-in message
+            document.getElementById('logout-button').style.display = 'none'; // Hide the logout button
+            document.getElementById('error-message').innerText = ''; // Clear any error message
+            document.getElementById('username').value = ''; // Clear the username field
+            document.getElementById('password').value = ''; // Clear the password field
+        }
+    </script>
+  </body>
+</html>

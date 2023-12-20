@@ -1,0 +1,13 @@
+{
+    "data": [
+      {"_id": "id-11235446",
+      "title":"buřty",
+      "author":"Tesco",
+      "publishYear": "1kg",
+      "done": false
+    },{"_id": "id-586991",
+      "title":"šunka",
+      "author":"Lidl",
+      "publishYear": "0.5kg",
+      "done": true
+    }]}

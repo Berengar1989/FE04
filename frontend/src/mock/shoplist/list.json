@@ -1,0 +1,13 @@
+{ "data": [
+    {"_id": "1",
+    "title":"banany",
+    "author":"COOP",
+    "publishYear": "2kg",
+    "done": false
+  },{"_id": "2",
+    "title":"pizza",
+    "author":"Lidl",
+    "publishYear": "2",
+    "done": true
+}]
+}
